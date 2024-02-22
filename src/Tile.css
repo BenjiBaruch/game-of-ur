@@ -1,0 +1,31 @@
+.five-eyes {
+    background-image: url("assets/five-eyes.svg");
+}
+
+.five-eyes.hover {
+    background-image: url("assets/five-eyes-hover.svg");
+}
+
+.four-eyes {
+    background-image: url("assets/four-eyes.svg");
+}
+
+.four-eyes.hover {
+    background-image: url("assets/four-eyes-hover.svg");
+}
+
+.cross-hatch {
+    background-image: url("assets/cross-hatch.svg");
+}
+
+.cross-hatch.hover {
+    background-image: url("assets/cross-hatch-hover.svg");
+}
+
+.multi-hatch {
+    background-image: url("assets/multi-hatch.svg");
+}
+
+.multi-hatch.hover {
+    background-image: url("assets/multi-hatch-hover.svg");
+}
