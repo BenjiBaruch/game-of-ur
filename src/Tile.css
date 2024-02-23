@@ -1,31 +1,131 @@
 .five-eyes {
-    background-image: url("assets/five-eyes.svg");
+    background-image: url("../assets/five-eyes.svg");
 }
 
 .five-eyes.hover {
-    background-image: url("assets/five-eyes-hover.svg");
+    background-image: url("../assets/five-eyes-hover.svg");
 }
 
 .four-eyes {
-    background-image: url("assets/four-eyes.svg");
+    background-image: url("../assets/four-eyes.svg");
 }
 
 .four-eyes.hover {
-    background-image: url("assets/four-eyes-hover.svg");
+    background-image: url("../assets/four-eyes-hover.svg");
 }
 
 .cross-hatch {
-    background-image: url("assets/cross-hatch.svg");
+    background-image: url("../assets/cross-hatch.svg");
 }
 
 .cross-hatch.hover {
-    background-image: url("assets/cross-hatch-hover.svg");
+    background-image: url("../assets/cross-hatch-hover.svg");
 }
 
 .multi-hatch {
-    background-image: url("assets/multi-hatch.svg");
+    background-image: url("../assets/multi-hatch.svg");
 }
 
 .multi-hatch.hover {
-    background-image: url("assets/multi-hatch-hover.svg");
+    background-image: url("../assets/multi-hatch-hover.svg");
+}
+
+.five-eyes {
+    background-image: url("../assets/five-eyes.svg");
+}
+
+.five-eyes.hover {
+    background-image: url("../assets/five-eyes-hover.svg");
+}
+
+.four-eyes {
+    background-image: url("../assets/four-eyes.svg");
+}
+
+.four-eyes.hover {
+    background-image: url("../assets/four-eyes-hover.svg");
+}
+
+.cross-hatch {
+    background-image: url("../assets/cross-hatch.svg");
+}
+
+.cross-hatch.hover {
+    background-image: url("../assets/cross-hatch-hover.svg");
+}
+
+.multi-hatch {
+    background-image: url("../assets/multi-hatch.svg");
+}
+
+.multi-hatch.hover {
+    background-image: url("../assets/multi-hatch-hover.svg");
+}
+
+/**/
+
+.five-eyes.red {
+    background-image: url("../assets/five-eyes-red.svg");
+}
+
+.five-eyes.red.hover {
+    background-image: url("../assets/five-eyes-red-hover.svg");
+}
+
+.four-eyes.red {
+    background-image: url("../assets/four-eyes-red.svg");
+}
+
+.four-eyes.red.hover {
+    background-image: url("../assets/four-eyes-red-hover.svg");
+}
+
+.cross-hatch.red {
+    background-image: url("../assets/cross-hatch-red.svg");
+}
+
+.cross-hatch.red.hover {
+    background-image: url("../assets/cross-hatch-red-hover.svg");
+}
+
+.multi-hatch.red {
+    background-image: url("../assets/multi-hatch-red.svg");
+}
+
+.multi-hatch.red.hover {
+    background-image: url("../assets/multi-hatch-red-hover.svg");
+}
+
+/**/
+
+.five-eyes.blue {
+    background-image: url("../assets/five-eyes-blue.svg");
+}
+
+.five-eyes.blue.hover {
+    background-image: url("../assets/five-eyes-blue-hover.svg");
+}
+
+.four-eyes.blue {
+    background-image: url("../assets/four-eyes-blue.svg");
+}
+
+.four-eyes.blue.hover {
+    background-image: url("../assets/four-eyes-blue-hover.svg");
+}
+
+.cross-hatch.blue {
+    background-image: url("../assets/cross-hatch-blue.svg");
+}
+
+.cross-hatch.blue.hover {
+    background-image: url("../assets/cross-hatch-blue-hover.svg");
+}
+
+.multi-hatch.blue {
+    background-image: url("../assets/multi-hatch-blue.svg");
+}
+
+.multi-hatch.blue.hover {
+    background-image: url("../assets/multi-hatch-blue-hover.svg");
 }
