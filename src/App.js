@@ -1,5 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import Tile from './Tile';
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   const [blueHomeWell, setBlueHomeWell] = useState(7);
   const [blueEndWell, setBlueEndWell] = useState(0);
   const [winner, setWinner] = useState(-1);
-  const diceScore = 0;
+  let diceScore = 0;
 
   function RollDice() {
     setDiceValues(diceValues.map(() => {
@@ -25,7 +26,7 @@ function App() {
   }
 
   function DoTurn(square) {
-    const [activeHomeWell, setActiveHomeWell, activeEndWell, setActiveEndWell] = (activePlayer == 0) 
+    const [activeHomeWell, setActiveHomeWell, activeEndWell, setActiveEndWell] = (activePlayer === 0) 
       ? [redHomeWell, setRedHomeWell, redEndWell, setRedEndWell]
       : [blueHomeWell, setBlueHomeWell, blueEndWell, setBlueEndWell];
 
@@ -34,23 +35,23 @@ function App() {
     if (dest > 15) {
       return;
     }
-    const finish = dest == 15;
-    const rosette = dest == 4 || dest == 8 || dest == 14;
+    const finish = dest === 15;
+    const rosette = dest === 4 || dest === 8 || dest === 14;
     const raceRow = 4 < dest && dest < 13;
 
-    const [activeBoard, setActiveBoard] = (activePlayer == 0) ? [redBoard.slice(), setRedBoard] : [blueBoard.slice(), setBlueBoard];
-    const [opponentBoard, setOpponentBoard] = (activePlayer == 1) ? [redBoard.slice(), setRedBoard] : [blueBoard.slice(), setBlueBoard];
+    const [activeBoard, setActiveBoard] = (activePlayer === 0) ? [redBoard.slice(), setRedBoard] : [blueBoard.slice(), setBlueBoard];
+    const [opponentBoard, setOpponentBoard] = (activePlayer === 1) ? [redBoard.slice(), setRedBoard] : [blueBoard.slice(), setBlueBoard];
   
-    if (!finish && (activeBoard[dest] || (opponentBoard[dest] && (dest == 8)))) {
+    if (!finish && (activeBoard[dest] || (opponentBoard[dest] && (dest === 8)))) {
       return;
     }
 
-    if (square == 0) {
-      if (activeHomeWell == 0) {
+    if (square === 0) {
+      if (activeHomeWell === 0) {
         return;
       }
       else {
-        if (activeHomeWell == 1) {
+        if (activeHomeWell === 1) {
           activeBoard[0] = false;
         }
         setActiveHomeWell(activeHomeWell-1);
@@ -60,7 +61,7 @@ function App() {
       activeBoard[square] = false;
       if (finish) {
         setActiveEndWell(activeEndWell+1);
-        if (activeEndWell == 7) {
+        if (activeEndWell === 7) {
           setWinner(activePlayer);
         }
       }
@@ -80,9 +81,15 @@ function App() {
     RollDice();
   }
 
+  function onTileClick() {
+    return;
+  }
+
   return (
     <div className="App">
-          
+      <h1>HELLO THERE</h1>
+      <Tile tileName="rosette" occupancy="" onClick={onTileClick} />
+      <Tile tileName="multi-hatch" occupancy="-red" onClick={onTileClick} />
     </div>
   );
 }
