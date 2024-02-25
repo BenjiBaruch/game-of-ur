@@ -90,6 +90,7 @@ function App() {
       <h1>HELLO THERE</h1>
       <Tile tileName="rossette" occupancy="" onClick={onTileClick} />
       <Tile tileName="multi_hatch" occupancy="_red" onClick={onTileClick} />
+      <img src={require('./assets/five-eyes.svg')} alt="five_eyes" />
     </div>
   );
 }
