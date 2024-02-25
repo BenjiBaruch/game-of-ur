@@ -88,8 +88,8 @@ function App() {
   return (
     <div className="App">
       <h1>HELLO THERE</h1>
-      <Tile tileName="rosette" occupancy="" onClick={onTileClick} />
-      <Tile tileName="multi-hatch" occupancy="-red" onClick={onTileClick} />
+      <Tile tileName="rossette" occupancy="" onClick={onTileClick} />
+      <Tile tileName="multi_hatch" occupancy="_red" onClick={onTileClick} />
     </div>
   );
 }

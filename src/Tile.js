@@ -30,16 +30,17 @@ function Tile({tileName, occupancy, onClick}) {
         five_eyes_red_hover: require('./assets/five-eyes-red-hover.svg'),
         five_eyes_blue: require('./assets/five-eyes-blue.svg'),
         five_eyes_blue_hover: require('./assets/five-eyes-blue-hover.svg'),
-        rosette: require('./assets/rosette.svg'),
-        rosette_hover: require('./assets/rosette-hover.svg'),
-        rosette_red: require('./assets/rosette-red.svg'),
-        rosette_red_hover: require('./assets/rosette-red-hover.svg'),
-        rosette_blue: require('./assets/rosette-blue.svg'),
-        rosette_blue_hover: require('./assets/rosette-blue-hover.svg'),
+        rossette: require('./assets/rossette.svg'),
+        rossette_hover: require('./assets/rossette-hover.svg'),
+        rossette_red: require('./assets/rossette-red.svg'),
+        rossette_red_hover: require('./assets/rossette-red-hover.svg'),
+        rossette_blue: require('./assets/rossette-blue.svg'),
+        rossette_blue_hover: require('./assets/rossette-blue-hover.svg'),
     }
 
-    const path = '../assets/' + tileName + occupancy + (hovered ? "-hover" : "") + '.svg';
-    const img = images[path];
+    const name = tileName + occupancy + (hovered ? "_hover" : "");
+    const img = images[name];
+    console.log(name);
 
     return (
         <Pressable 
@@ -48,7 +49,7 @@ function Tile({tileName, occupancy, onClick}) {
             onMouseOver={() => {setHovered(true)}} 
             onMouseOut={() => {setHovered(false)}} 
         > 
-            <Image source={img} />
+            <img source={img} alt={name} />
         </Pressable>
     );
 }
