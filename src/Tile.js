@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button, Image, Pressable } from "react-native";
 
+import './Tile.css';
+
 /*
 layer1 = ["four-eyes", "five-eyes", "cross-hatch", "multi-hatch", "rosette"]
 layer2 = ["", "-red", "-blue"]
@@ -113,6 +115,39 @@ function Tile({tileName, occupancy, onClick}) {
         rosette_red_hover: <RosetteRedHover />,
         rosette_blue: <RosetteBlue />,
         rosette_blue_hover: <RosetteBlueHover />,
+    }
+
+    const images2 = {
+        four_eyes: FourEyes,
+        four_eyes_hover: FourEyesHover,
+        four_eyes_red: FourEyesRed,
+        four_eyes_red_hover: FourEyesRedHover,
+        four_eyes_blue: FourEyesBlue,
+        four_eyes_blue_hover: FourEyesBlueHover,
+        five_eyes: FiveEyes,
+        five_eyes_hover: FiveEyesHover,
+        five_eyes_red: FiveEyesRed,
+        five_eyes_red_hover: FiveEyesRedHover,
+        five_eyes_blue: FiveEyesBlue,
+        five_eyes_blue_hover: FiveEyesBlueHover,
+        cross_hatch: CrossHatch,
+        cross_hatch_hover: CrossHatchHover,
+        cross_hatch_red: CrossHatchRed,
+        cross_hatch_red_hover: CrossHatchRedHover,
+        cross_hatch_blue: CrossHatchBlue,
+        cross_hatch_blue_hover: CrossHatchBlueHover,
+        multi_hatch: MultiHatch,
+        multi_hatch_hover: MultiHatchHover,
+        multi_hatch_red: MultiHatchRed,
+        multi_hatch_red_hover: MultiHatchRedHover,
+        multi_hatch_blue: MultiHatchBlue,
+        multi_hatch_blue_hover: MultiHatchBlueHover,
+        rosette: Rosette,
+        rosette_hover: RosetteHover,
+        rosette_red: RosetteRed,
+        rosette_red_hover: RosetteRedHover,
+        rosette_blue: RosetteBlue,
+        rosette_blue_hover: RosetteBlueHover,
     }
 
     const name = tileName + occupancy + (hovered ? "_hover" : "");

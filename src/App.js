@@ -1,6 +1,8 @@
 import './App.css';
 import { useState } from "react";
 import HomeRow from './HomeRow';
+import RaceRow from './RaceRow';
+
 
 
 function App() {
@@ -89,6 +91,8 @@ function App() {
     <div className="App">
       <h1>HELLO THERE</h1>
       <HomeRow occupancy={redBoard} onClick={onTileClick} />
+      <RaceRow occupancy={redBoard} onClick={onTileClick} />
+      <HomeRow occupancy={blueBoard} onClick={onTileClick} />
     </div>
   );
 }
