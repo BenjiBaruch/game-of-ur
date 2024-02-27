@@ -47,8 +47,7 @@ import { ReactComponent as RosetteBlueHover } from './assets/rossette-blue-hover
 
 
 
-function Tile({tileName, occupancy, onClick}) {
-    const [hovered, setHovered] = useState(false);
+function Tile({tileName, occupancy, onClick, onMouseOver, hovered}) {
 /*
     const images = {
         cross_hatch: require('./assets/cross-hatch.svg'),
@@ -158,8 +157,7 @@ function Tile({tileName, occupancy, onClick}) {
         <Pressable 
             //className={tileName + occupancy + (hovered ? " hover" : "")}
             onClick={onClick} 
-            onMouseOver={() => {setHovered(true)}} 
-            onMouseOut={() => {setHovered(false)}} 
+            onMouseOver={onMouseOver} 
         > 
             {img}
         </Pressable>

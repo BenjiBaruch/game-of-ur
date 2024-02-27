@@ -15,6 +15,7 @@ function App() {
   const [blueHomeWell, setBlueHomeWell] = useState(7);
   const [blueEndWell, setBlueEndWell] = useState(0);
   const [winner, setWinner] = useState(-1);
+  const [highlight, setHighlight] = useState(-1);
   let diceScore = 0;
 
   function RollDice() {
@@ -87,12 +88,16 @@ function App() {
     return;
   }
 
+  function mouseHighlight(tile) {
+    setHighlight(tile);
+  }
+
   return (
     <div className="App">
-      <h1>HELLO THERE</h1>
-      <HomeRow occupancy={redBoard} onClick={onTileClick} />
-      <RaceRow occupancy={redBoard} onClick={onTileClick} />
-      <HomeRow occupancy={blueBoard} onClick={onTileClick} />
+      <h1 onMouseOver={() => mouseHighlight(-1)}>HELLO THERE</h1>
+      <HomeRow occupancy={redBoard} onClick={onTileClick} onHover={mouseHighlight} bottom={false} highlight={highlight} />
+      <RaceRow occupancy={redBoard} onClick={onTileClick} onHover={mouseHighlight} highlight={highlight} />
+      <HomeRow occupancy={blueBoard} onClick={onTileClick} onHover={mouseHighlight} bottom={true} highlight={highlight} />
     </div>
   );
 }
