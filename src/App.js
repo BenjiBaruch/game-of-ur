@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from "react";
 import HomeRow from './HomeRow';
 import RaceRow from './RaceRow';
+import DiceRow from './DiceRow';
 
 
 
@@ -18,7 +19,7 @@ function App() {
   const [highlight, setHighlight] = useState(-1);
   let diceScore = 0;
 
-  function RollDice() {
+  function rollDice() {
     setDiceValues(diceValues.map(() => {
       return Math.floor(Math.random() * 2);
     }))
@@ -28,7 +29,17 @@ function App() {
     });
   }
 
-  function DoTurn(square) {
+  function doTurn(square) {
+    if (square === -1) {
+      return
+    }
+
+    if (diceScore === 0) {
+      setActivePlayer((activePlayer + 1) % 2);
+      rollDice();
+      return;
+    }
+
     const [activeHomeWell, setActiveHomeWell, activeEndWell, setActiveEndWell] = (activePlayer === 0) 
       ? [redHomeWell, setRedHomeWell, redEndWell, setRedEndWell]
       : [blueHomeWell, setBlueHomeWell, blueEndWell, setBlueEndWell];
@@ -81,7 +92,7 @@ function App() {
     if (!rosette) {
       setActivePlayer((activePlayer + 1) % 2);
     }
-    RollDice();
+    rollDice();
   }
 
   function onTileClick() {
@@ -95,9 +106,34 @@ function App() {
   return (
     <div className="App">
       <h1 onMouseOver={() => mouseHighlight(-1)}>HELLO THERE</h1>
-      <HomeRow occupancy={redBoard} onClick={onTileClick} onHover={mouseHighlight} bottom={false} highlight={highlight} />
-      <RaceRow occupancy={redBoard} onClick={onTileClick} onHover={mouseHighlight} highlight={highlight} />
-      <HomeRow occupancy={blueBoard} onClick={onTileClick} onHover={mouseHighlight} bottom={true} highlight={highlight} />
+      <HomeRow 
+        occupancy={redBoard} 
+        color="_red" 
+        onClick={doTurn} 
+        onHover={mouseHighlight} 
+        bottom={false} 
+        highlight={highlight} 
+        homeWell={redHomeWell}
+        endWell={redEndWell}
+      />
+      <RaceRow 
+        red={redBoard} 
+        blue={blueBoard} 
+        onClick={doTurn} 
+        onHover={mouseHighlight} 
+        highlight={highlight} 
+      />
+      <HomeRow 
+        occupancy={blueBoard} 
+        color="_blue" 
+        onClick={doTurn} 
+        onHover={mouseHighlight} 
+        bottom={true} 
+        highlight={highlight}
+        homeWell={blueHomeWell}
+        endWell={blueEndWell} 
+      />
+      <DiceRow occupancy={diceValues} />
     </div>
   );
 }

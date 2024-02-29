@@ -15,3 +15,13 @@
     max-width: 800px;
     height: 300px;
 }
+
+.diceRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+    width: 400;
+    max-width: 400px;
+    height: 300px;
+}
