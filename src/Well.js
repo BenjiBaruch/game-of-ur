@@ -1,4 +1,4 @@
-import './Tile.css'
+import './Well.css'
 import { Pressable } from "react-native";
 
 import { ReactComponent as WellRed1 } from "./assets/well-red-1.svg";
@@ -15,6 +15,8 @@ import { ReactComponent as WellBlue4 } from "./assets/well-blue-4.svg";
 import { ReactComponent as WellBlue5 } from "./assets/well-blue-5.svg";
 import { ReactComponent as WellBlue6 } from "./assets/well-blue-6.svg";
 import { ReactComponent as WellBlue7 } from "./assets/well-blue-7.svg";
+import { ReactComponent as Test } from './assets/rossette.svg';
+
 
 function Well({onClick, onMouseOver, color, quantity}) {
     const images = {
@@ -32,18 +34,22 @@ function Well({onClick, onMouseOver, color, quantity}) {
         well_blue_5: <WellBlue5 />,
         well_blue_6: <WellBlue6 />,
         well_blue_7: <WellBlue7 />,
+        test: <Test />
     }
-    if (quantity > 0) {
-        return (
+
+    const name = "well" + color + "_" + quantity;
+    const img = images[name];
+
+    return (
+        <div className="well">
             <Pressable 
-                onClick={onClick} 
+                onPress={onClick} 
                 onMouseOver={onMouseOver}
             >
-                {images["well" + color + "_" + quantity]}
-            </Pressable> 
-        );
-    }
-    return <span onMouseOver={onMouseOver}/>
+                {img}
+            </Pressable>
+        </div> 
+    );
 }
 
 export default Well;

@@ -1,8 +1,16 @@
-* {
+.tile {
     width: 100px;
     max-width: 100px;
     height: 100px;
     max-width: 100px;
+}
+
+.tileBottom {
+    padding-bottom: 150px;
+}
+
+.tileTop {
+    padding-top: 150px;
 }
 
 .five-eyes {

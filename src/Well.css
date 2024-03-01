@@ -1,0 +1,14 @@
+.well {
+    width: 100px;
+    max-width: 100px;
+    height: 250px;
+    max-width: 250px;
+}
+
+.colorNode {
+    padding-left: 60px;
+    width: 100px;
+    max-width: 100px;
+    height: 100px;
+    max-width: 100px;
+}

@@ -8,7 +8,8 @@ import DiceRow from './DiceRow';
 
 function App() {
   const [activePlayer, setActivePlayer] = useState(0);
-  const [diceValues, setDiceValues] = useState([Array(4)]);
+  const [diceValues, setDiceValues] = useState([Array(4).fill(0)]);
+  const [diceScore, setDiceScore] = useState(0);
   const [redBoard, setRedBoard] = useState([Array(15).fill(false)]);
   const [blueBoard, setBlueBoard] = useState([Array(15).fill(false)]);
   const [redHomeWell, setRedHomeWell] = useState(7);
@@ -17,24 +18,29 @@ function App() {
   const [blueEndWell, setBlueEndWell] = useState(0);
   const [winner, setWinner] = useState(-1);
   const [highlight, setHighlight] = useState(-1);
-  let diceScore = 0;
 
   function rollDice() {
-    setDiceValues(diceValues.map(() => {
-      return Math.floor(Math.random() * 2);
-    }))
-    diceScore = 0;
-    diceValues.array.forEach((value) => {
-      diceScore += value;
-    });
+    const vals = [Array(4)];
+    vals[0] = Math.floor(Math.random() * 2);
+    vals[1] = Math.floor(Math.random() * 2);
+    vals[2] = Math.floor(Math.random() * 2);
+    vals[3] = Math.floor(Math.random() * 2);
+    
+    setDiceScore(vals[0] + vals[1] + vals[2] + vals[3]);
+    setDiceValues(vals);
   }
 
-  function doTurn(square) {
+  function doTurn(square, row) {
+    console.log("doTurn(" + square + ')');
+    console.log("dice score type: " + typeof diceScore);
+
     if (square === -1) {
-      return
+      console.log("invalid square");
+      return;
     }
 
     if (diceScore === 0) {
+      console.log("zero dice");
       setActivePlayer((activePlayer + 1) % 2);
       rollDice();
       return;
@@ -44,9 +50,15 @@ function App() {
       ? [redHomeWell, setRedHomeWell, redEndWell, setRedEndWell]
       : [blueHomeWell, setBlueHomeWell, blueEndWell, setBlueEndWell];
 
+
+    if ((row === "_red" && activePlayer === 1) || (row === "_blue" && activePlayer === 0)) {
+      console.log("wrong side");
+      return;
+    }
     
     const dest = square + diceScore;
     if (dest > 15) {
+      console.log("dest too far");
       return;
     }
     const finish = dest === 15;
@@ -56,12 +68,27 @@ function App() {
     const [activeBoard, setActiveBoard] = (activePlayer === 0) ? [redBoard.slice(), setRedBoard] : [blueBoard.slice(), setBlueBoard];
     const [opponentBoard, setOpponentBoard] = (activePlayer === 1) ? [redBoard.slice(), setRedBoard] : [blueBoard.slice(), setBlueBoard];
   
+    console.log("turn: " + (activePlayer === 0 ? "red" : "blue") + 
+              "\nRed home well: " + redHomeWell + 
+              "\nBlue home well: " + blueHomeWell + 
+              "\nSquare: " + square +
+              "\nDest: " + dest);
+
+
+    if (square > 0 && !activeBoard[square]) {
+      console.log("no piece at clicked tile");
+      return;
+    }
+
+
     if (!finish && (activeBoard[dest] || (opponentBoard[dest] && (dest === 8)))) {
+      console.log("dest space occupied");
       return;
     }
 
     if (square === 0) {
       if (activeHomeWell === 0) {
+        console.log("home well empty");
         return;
       }
       else {
@@ -95,17 +122,13 @@ function App() {
     rollDice();
   }
 
-  function onTileClick() {
-    return;
-  }
-
   function mouseHighlight(tile) {
     setHighlight(tile);
   }
 
   return (
     <div className="App">
-      <h1 onMouseOver={() => mouseHighlight(-1)}>HELLO THERE</h1>
+      <DiceRow occupancy={diceValues} activePlayer={activePlayer} />
       <HomeRow 
         occupancy={redBoard} 
         color="_red" 
@@ -133,7 +156,6 @@ function App() {
         homeWell={blueHomeWell}
         endWell={blueEndWell} 
       />
-      <DiceRow occupancy={diceValues} />
     </div>
   );
 }

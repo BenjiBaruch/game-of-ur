@@ -4,7 +4,15 @@
     justify-content: center;
     width: 800px;
     max-width: 800px;
-    height: 300px;
+    height: 250px;
+}
+
+.bottom {
+    align-items: flex-end;
+}
+
+.top {
+    align-items: flex-start;
 }
 
 .raceRow {
@@ -13,15 +21,15 @@
     justify-content: center;
     width: 800px;
     max-width: 800px;
-    height: 300px;
+    height: 100px;
 }
 
 .diceRow {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    padding-top: 50px;
-    width: 400;
-    max-width: 400px;
-    height: 300px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 560px;
+    max-width: 560px;
+    height: 100px;
 }

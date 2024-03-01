@@ -3,7 +3,12 @@ import { ReactComponent as DieFull } from './assets/die-full.svg';
 import './Tile.css';
 
 function Die({occupancy}) {
-    return occupancy === 0 ? <DieEmpty /> : <DieFull />;
+    const img = occupancy === 0 ? <DieFull /> : <DieEmpty />;
+    return (
+        <div className="tile">
+            {img}
+        </div>
+    )
 }
 
 export default Die;
